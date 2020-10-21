@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.stream.StreamSupport;
 
 import com.opencsv.bean.CsvToBean;
@@ -35,6 +33,8 @@ public class StateCensusAnalyser {
 			throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
 		} catch (IllegalStateException e) {
 			throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE);
+		} catch (RuntimeException e) {
+			throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.INTERNAL_ISSUE);
 		}
 	}
 
