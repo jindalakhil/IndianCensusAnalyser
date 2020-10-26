@@ -22,7 +22,7 @@ public class CensusStateAnalyserTest {
 	//Statecode Census Test
 
 	@Test
-	public void givenStateCensusCSVFile_ShouldReturnNumberOfRecords() throws CensusAnalyserException {
+	public void givenStateCensusCSVFile_ShouldReturnNumberOfRecords() throws CensusAnalyserException, CsvException {
 		int noOfEntries = censusAnalyser.loadStateCsvData(STATE_CENSUS_FILE_PATH);
 		Assert.assertEquals(29, noOfEntries);
 	}
@@ -33,6 +33,9 @@ public class CensusStateAnalyserTest {
 			censusAnalyser.loadStateCsvData("D:\\Capgemini Workspace\\IndiaCensusAnalyser\\stateCensus123.csv");
 		} catch (CensusAnalyserException e) {
 			Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM, e.type);
+		} catch (CsvException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -42,6 +45,9 @@ public class CensusStateAnalyserTest {
 			censusAnalyser.loadStateCsvData("D:\\Capgemini Workspace\\IndiaCensusAnalyser\\stateCensus.txt");
 		} catch (CensusAnalyserException e) {
 			Assert.assertEquals(CensusAnalyserException.ExceptionType.WRONG_TYPE, e.type);
+		} catch (CsvException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -51,6 +57,9 @@ public class CensusStateAnalyserTest {
 			censusAnalyser.loadStateCsvData(STATE_CENSUS_WRONG_HEADER_FILE_PATH);
 		} catch (CensusAnalyserException e) {
 			Assert.assertEquals(CensusAnalyserException.ExceptionType.INTERNAL_ISSUE, e.type);
+		} catch (CsvException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -60,6 +69,8 @@ public class CensusStateAnalyserTest {
 			censusAnalyser.loadStateCsvData(STATE_CENSUS_WRONG_DELIMITER_FILE_PATH);
 		} catch (CensusAnalyserException e) {
 			Assert.assertEquals(CensusAnalyserException.ExceptionType.INTERNAL_ISSUE, e.type);
+		} catch (CsvException e) {
+			e.printStackTrace();
 		}
 	}
 	
