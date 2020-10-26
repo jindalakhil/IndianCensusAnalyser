@@ -18,13 +18,13 @@ public class CensusStateAnalyserTest {
 	public void initialize() {
 		censusAnalyser = new StateCensusAnalyser();
 	}
-	
-	//Statecode Census Test
+
+	// Statecode Census Test
 
 	@Test
 	public void givenStateCensusCSVFile_ShouldReturnNumberOfRecords() throws CensusAnalyserException, CsvException {
 		int noOfEntries = censusAnalyser.loadStateCsvData(STATE_CENSUS_FILE_PATH);
-		Assert.assertEquals(29, noOfEntries);
+		Assert.assertEquals(30, noOfEntries);
 	}
 
 	@Test
@@ -73,14 +73,13 @@ public class CensusStateAnalyserTest {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	//India Code Census Test
-	
+
+	// India Code Census Test
+
 	@Test
 	public void givenIndiaCensusCSVFile_ShouldReturnNumberOfRecords() throws CensusAnalyserException {
 		int noOfEntries = censusAnalyser.loadStateCode(INDIA_CENSUS_FILE_PATH);
-		Assert.assertEquals(37, noOfEntries);
+		Assert.assertEquals(38, noOfEntries);
 	}
 
 	@Test
