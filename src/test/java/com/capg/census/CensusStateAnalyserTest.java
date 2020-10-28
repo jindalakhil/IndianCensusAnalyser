@@ -24,7 +24,7 @@ public class CensusStateAnalyserTest {
 	@Test
 	public void givenStateCensusCSVFile_ShouldReturnNumberOfRecords() throws CensusAnalyserException, CsvException {
 		int noOfEntries = censusAnalyser.loadStateCsvData(STATE_CENSUS_FILE_PATH);
-		Assert.assertEquals(30, noOfEntries);
+		Assert.assertEquals(29, noOfEntries);
 	}
 
 	@Test
@@ -79,7 +79,7 @@ public class CensusStateAnalyserTest {
 	@Test
 	public void givenIndiaCensusCSVFile_ShouldReturnNumberOfRecords() throws CensusAnalyserException {
 		int noOfEntries = censusAnalyser.loadStateCode(INDIA_CENSUS_FILE_PATH);
-		Assert.assertEquals(38, noOfEntries);
+		Assert.assertEquals(37, noOfEntries);
 	}
 
 	@Test
